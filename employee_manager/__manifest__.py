@@ -4,8 +4,9 @@
     'name': 'Employee Manager',
     'version': '1.0',
     'category': 'Hidden',
+    'author': 'iSERD',
     'description': """
-This module allows you to choose any manager for an eployee.
+This module allows you to choose any manager for an employee.
 """,
     'depends': ['hr'],
     'data': [],
