@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="sh_onemate_snippet_tmpl_5_item" name="Portfolio">
+    <div id="myBtnContainer" class="button_name">
+        <button class="btn btn-default active js_cls_s_portfolio_filter_button" data-filter="all">All</button>
+        <t t-foreach="categories" t-as="categ">
+            <button class="btn btn-default js_cls_s_portfolio_filter_button" t-att-data-filter="token + '_' + str(categ.id)">
+                <span t-out="categ.name" />
+            </button>
+        </t>
+    </div>
+
+    <div class="row">
+        <t t-if="Portfolios">
+            <t t-foreach="Portfolios" t-as="port">
+                <div t-att-class="'col-lg-3 col-md-4 col-sm-6 col-12 col-part js_cls_s_portfolio_filter_el %s' % (token + '_' + str(port.category_id.id))">
+                    <div class="sh-box">
+                        <a class="sh-lightgallery mb-4 js_cls_s_portfolio_lcl" t-attf-href="/web/image/website.portfolio/#{port.id}/img" t-att-title="port.name" t-att-data-lcl-txt="port.desc" t-attf-data-lcl-thumb="/web/image/website.portfolio/#{port.id}/img">
+                            <img t-attf-src="/web/image/website.portfolio/#{port.id}/img" t-attf-alt="port.name" />
+                            <div class="sh-overlay">
+                                <div class="sh-overlay-content" style="margin-top: -14px;">
+                                    <h5>Investment</h5>
+                                    <h3>Business Planning</h3>
+                                    <div class="btn sh_portfolio_more_btn ">
+                                        <a href="#">
+                                            <span class="sh_portfolio_btn_more">More</span>
+                                            <span class="fa fa-long-arrow-right"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </t>
+        </t>
+
+    </div>
+</template>
+</odoo>
