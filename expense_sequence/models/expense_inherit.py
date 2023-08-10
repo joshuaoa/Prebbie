@@ -21,7 +21,7 @@ class ExpenseSequence(models.Model):
             else:
                 expense.is_ref_editable = is_account_manager
 
-    @api.model_create_multi
+    @api.model
     def create(self, vals):
         if vals.get('sequence_number', _('EXP')) == _('EXP'):
             vals['sequence_number'] = self.env['ir.sequence'].next_by_code('hr.expense.invoice') or _('EXP')
